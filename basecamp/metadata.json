@@ -1,0 +1,34 @@
+{
+  "name": "production_office",
+  "display_name": "INTERSECT",
+  "version": "0.3.0",
+  "type": "ui_qml",
+  "interface": "universal",
+  "category": "productivity",
+  "description": "INTERSECT production office: 12 event formats, 52 modules, custom modules, a portfolio showreel, and a private Intersect Archive on Logos Storage",
+  "main": "production_office_plugin",
+  "backend": "module",
+  "icon": "src/icons/production_office.png",
+  "view": "qml/Main.qml",
+  "dependencies": [
+    "storage_module"
+  ],
+  "provides": [],
+  "uses": [],
+  "codegen": {
+    "rep": "src/production_office.rep"
+  },
+  "nix": {
+    "packages": {
+      "build": [],
+      "runtime": []
+    },
+    "external_libraries": [],
+    "cmake": {
+      "find_packages": [],
+      "extra_sources": [],
+      "extra_include_dirs": [],
+      "extra_link_libraries": []
+    }
+  }
+}

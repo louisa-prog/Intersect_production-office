@@ -1,0 +1,30 @@
+// View contract between the INTERSECT QML view and its C++ backend.
+class ProductionOffice
+{
+    // ── events: one JSON document per event; the view owns the schema ──
+    SLOT(QString listEvents())
+    SLOT(bool saveEvent(QString id, QString json))
+    SLOT(bool deleteEvent(QString id))
+    SLOT(QString exportAll())
+    SLOT(int importAll(QString json))
+
+    // ── Intersect Archive: private files per event and module ──
+    // Files are copied into a private vault in the module's data folder, then
+    // stored on the local Logos Storage node with advertise=false.
+    SLOT(QString archiveList(QString eventId))
+    SLOT(QString archiveAdd(QString eventId, QString module, QString fileUrl, QString note))
+    SLOT(bool archiveUpdate(QString id, QString module, QString note))
+    SLOT(bool archiveRemove(QString id))
+    SLOT(int archiveRemoveEvent(QString eventId))
+    SLOT(QString archiveFileUrl(QString id))
+    SLOT(bool archiveExport(QString id, QString destUrl))
+    SLOT(bool storageConnect())
+
+    PROP(QString status="Starting" READONLY)
+    PROP(int revision=0 READONLY)
+    PROP(QString storagePath="" READONLY)
+    // 0 not connected · 1 connecting · 2 connected · 3 error
+    PROP(int storageState=0 READONLY)
+    PROP(QString storageNote="" READONLY)
+    PROP(int archiveRevision=0 READONLY)
+}
